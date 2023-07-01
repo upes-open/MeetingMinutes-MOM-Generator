@@ -32,12 +32,26 @@
 
 ### Contributing
 
-> Fork and Star the project.
-> Clone the repo.
-> Create a new branch <Your_Github_username> 
-> Go to the issues tab and comment on a suitable issue of your choice and wait for the issue to be assigned to you.
-> Make the changes in your local repo and push the changes.
-> Create a pull request to the main branch.
-> Wait for the PR to be reviewed and merged.
-
-
+> * Fork and Star the project.
+>
+> Clone the repo on your local machine.
+>
+```bash
+git clone https://github.com/upes-open/OSoC-MeetingMinutes-MOM-Generator.git
+```
+>
+> * Create a new branch `<Your_GitHub_username>`
+>
+```bash
+git checkout -b <GitHub_usename>
+```
+>
+> * Go to the issues tab and comment on a suitable issue of your choice and wait for the issue to be assigned to you.
+>
+> * Make the changes in your local repo and push the changes.
+>
+> * Create a pull request to the main branch.
+>
+> * Wait for the PR to be reviewed and merged.
+>
+> * Happy Coding!
