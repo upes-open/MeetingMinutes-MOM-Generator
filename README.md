@@ -18,10 +18,11 @@
 </div>
 
 ### About the Project
-> The MOM Generator automates the conversion of spoken language to written meeting minutes, enhancing productivity and accuracy. It utilizes speech-to-text technology to generate comprehensive meeting summaries in both offline and online formats.
+> The MOM Generator is a google chrome extension that automates the conversion of spoken language to written meeting minutes, enhancing productivity and accuracy. It utilizes speech-to-text technology to generate comprehensive meeting summaries in both offline and online formats.
 >   - Speech to text Technology: Utilize advanced speech recognition technology to convert spoken language in meetings to text.
 >   - Real time Transcription: Provide the ability to generate meeting minutes in real-time during live meetings.
 >   - Comprehensive Meeting Summaries: Generate detailed meeting summaries that capture key discussion points, decisions, action items, and assigned responsibilities.
+
 ### Tech Stack
 
 
