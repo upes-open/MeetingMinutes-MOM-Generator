@@ -1,6 +1,6 @@
 <div align='center'>
 
-## MeetingMinutes.ai MOM Generator
+## MeetingMinutes MOM Generator
 
 <img src='https://github.com/upes-open/Git-WorkShop/assets/101355193/b9315c8e-5aaa-438e-ab5a-48b25571dc90' width=100>
 
