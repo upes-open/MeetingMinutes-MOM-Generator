@@ -10,7 +10,7 @@
 
 ![GitHub contributors](https://img.shields.io/github/contributors/upes-open/OSoC-MeetingMinutes-MOM-Generator)
 ![GitHub forks](https://img.shields.io/github/forks/upes-open/OSoC-MeetingMinutes-MOM-Generator)
- ![GitHub Repo stars](https://img.shields.io/github/stars/upes-open/OSoC-MeetingMinutes-MOM-Generator)
+![GitHub Repo stars](https://img.shields.io/github/stars/upes-open/OSoC-MeetingMinutes-MOM-Generator)
  ![GitHub issues](https://img.shields.io/github/issues/upes-open/OSoC-MeetingMinutes-MOM-Generator)
 
 
