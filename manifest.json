@@ -1,0 +1,12 @@
+{
+    "name": "MeetingMinutes",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "icons": {
+      "128": "logo.png"
+    },
+    "permissions": ["active Tab"],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
