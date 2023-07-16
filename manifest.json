@@ -5,8 +5,9 @@
     "icons": {
       "128": "logo.png"
     },
-    "permissions": ["active Tab"],
+    "permissions": ["activeTab"],
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "popup.html",
+      "default_logo": "logo.png"
     }
   }
