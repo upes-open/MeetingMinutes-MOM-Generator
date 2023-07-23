@@ -3,11 +3,11 @@
     "version": "0.0.1",
     "manifest_version": 3,
     "icons": {
-      "128": "logo.png"
+      "128": "frontend/assets/logo.png"
     },
     "permissions": ["activeTab"],
     "action": {
-      "default_popup": "popup.html",
-      "default_logo": "logo.png"
+      "default_popup": "frontend/src/popup.html",
+      "default_logo": "frontend/assets/logo.png"
     }
   }
