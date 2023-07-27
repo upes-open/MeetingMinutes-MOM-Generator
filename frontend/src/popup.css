@@ -75,3 +75,13 @@ body {
 .download-btn {
 	font-size: 0.775em;
 }
+
+.download-link {
+	text-decoration: none;
+	color: white;
+}
+
+.download-link:hover {
+	text-decoration: none;
+	color: white;
+}
