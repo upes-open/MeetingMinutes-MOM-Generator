@@ -5,9 +5,36 @@
     "icons": {
       "128": "frontend/assets/logo.png"
     },
-    "permissions": ["activeTab"],
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
     "action": {
       "default_popup": "frontend/src/popup.html",
       "default_logo": "frontend/assets/logo.png"
-    }
+    },
+    "background": {
+      "service_worker": "frontend/src/background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "frontend/assets/*",
+          "frontend/js/*"
+        ],
+        "matches": [
+          "https://kit.fontawesome.com/*"
+        ]
+      }
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://meet.google.com/*"
+        ],
+        "js": [
+          "frontend/src/content.js"
+        ]
+      }
+    ]
   }
