@@ -72,10 +72,6 @@ body {
 	color: black;
 }
 
-.download-btn {
-	font-size: 0.775em;
-}
-
 .download-link {
 	text-decoration: none;
 	color: white;
@@ -84,4 +80,16 @@ body {
 .download-link:hover {
 	text-decoration: none;
 	color: white;
+}
+
+.audiobox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.attendees {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
