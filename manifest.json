@@ -1,40 +1,43 @@
 {
-    "name": "MeetingMinutes",
-    "version": "0.0.1",
-    "manifest_version": 3,
-    "icons": {
-      "128": "frontend/assets/logo.png"
-    },
-    "permissions": [
-      "activeTab",
-      "storage"
-    ],
-    "action": {
-      "default_popup": "frontend/src/popup.html",
-      "default_logo": "frontend/assets/logo.png"
-    },
-    "background": {
-      "service_worker": "frontend/src/background.js"
-    },
-    "web_accessible_resources": [
-      {
-        "resources": [
-          "frontend/assets/*",
-          "frontend/js/*"
-        ],
-        "matches": [
-          "https://kit.fontawesome.com/*"
-        ]
-      }
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-          "https://meet.google.com/*"
-        ],
-        "js": [
-          "frontend/src/content.js"
-        ]
-      }
-    ]
-  }
+  "name": "MeetingMinutes",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "128": "frontend/assets/logo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabCapture",
+    "offscreen"
+  ],
+  "action": {
+    "default_popup": "frontend/src/popup.html",
+    "default_logo": "frontend/assets/logo.png"
+  },
+  "background": {
+    "service_worker": "frontend/src/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "frontend/assets/*",
+        "frontend/js/*"
+      ],
+      "matches": [
+        "https://kit.fontawesome.com/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "frontend/src/content.js"
+      ]
+    }
+  ]
+}

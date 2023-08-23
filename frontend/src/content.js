@@ -4,10 +4,6 @@ let summary = "";
 
 chrome.runtime.onMessage.addListener(
     function (request) {
-        if (request.message === 'playAudio') {
-            playAudio();
-        }
-
         if (request.message === 'getSummary') {
             allUser = getAttendees();
             summary = getSummary();
