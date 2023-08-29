@@ -1,3 +1,7 @@
+let recorder;
+let data = [];
+let userData;
+
 chrome.runtime.onMessage.addListener(async (message) => {
     if (message.target === 'offscreen') {
         switch (message.type) {
@@ -7,14 +11,14 @@ chrome.runtime.onMessage.addListener(async (message) => {
             case 'stop-recording':
                 stopRecording();
                 break;
+            case 'userAudio':
+                userData = message.data;
+                break;
             default:
                 throw new Error('Unrecognized message:', message.type);
         }
     }
 });
-
-let recorder;
-let data = [];
 
 async function startRecording(streamId) {
     if (recorder?.state === 'recording') {
@@ -34,10 +38,11 @@ async function startRecording(streamId) {
     const source = output.createMediaStreamSource(media);
     source.connect(output.destination);
 
-    recorder = new MediaRecorder(media, { mimeType: 'video/webm' });
+    recorder = new MediaRecorder(media, { mimeType: 'audio/webm' });
     recorder.ondataavailable = (event) => data.push(event.data);
     recorder.onstop = () => {
-        const blob = new Blob(data, { type: 'video/webm' });
+        
+        const blob = new Blob(data, { type: 'audio/webm' });
 
         // this is the URL of the audio that can be sent to an external service for further use
         const objectUrl = URL.createObjectURL(blob);
@@ -58,6 +63,7 @@ async function startRecording(streamId) {
 
         recorder = undefined;
         data = [];
+        userData = [];
     };
     recorder.start();
 

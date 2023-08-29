@@ -65,31 +65,3 @@ body {
     font-size: 0.975em;
 	margin-bottom: 1em;
 }
-
-.summary-box {
-	background-color: rgb(191, 191, 191);
-	font-size: 0.85em;
-	color: black;
-}
-
-.download-link {
-	text-decoration: none;
-	color: white;
-}
-
-.download-link:hover {
-	text-decoration: none;
-	color: white;
-}
-
-.audiobox {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.attendees {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}

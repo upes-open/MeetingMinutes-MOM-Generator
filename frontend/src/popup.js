@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let listenBtn = document.querySelector('.listen-btn');
     let downloadBtn = document.querySelector('.download-btn');
     let recording;
+
     chrome.storage.local.get('recording', (result) => {
         if ('recording' in result) {
             recording = result.recording;
@@ -21,11 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 message: 'startListening'
             });
             this.innerText = "Stop Listening";
+            userBtn.removeAttribute('disabled');
         } else {
             chrome.runtime.sendMessage({
                 message: 'stopListening'
             });
             this.innerText = "Start Listening";
+            userBtn.setAttribute('disabled', true);
         }
     });
 
