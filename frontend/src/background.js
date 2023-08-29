@@ -10,6 +10,7 @@ chrome.runtime.onMessage.addListener(
     function (request) {
         if (request.message === 'startListening') {
             if (!recording) {
+                sendMessageToContentScript({ message: 'getUserAudio' });
                 startRecording();
             } else {
                 console.log("Recording is already active.");
@@ -18,6 +19,7 @@ chrome.runtime.onMessage.addListener(
 
         if (request.message === 'stopListening') {
             if (recording) {
+                sendMessageToContentScript({ message: 'stopUserAudio' });
                 stopRecording();
             }
             else {
@@ -25,16 +27,12 @@ chrome.runtime.onMessage.addListener(
             }
         }
 
-        if (request.message === 'playAudio') {
-            sendMessageToContentScript({ message: 'playAudio' });
-        }
-
-        if (request.message === 'reqAttendees') {
-            sendMessageToContentScript({ message: 'getAttendees' });
-        }
-
         if (request.message === 'downloadSummary') {
             sendMessageToContentScript({ message: 'getSummary' });
+        }
+
+        if (request.type === 'log') {
+            console.log(request.message);
         }
     }
 );
@@ -56,7 +54,6 @@ function startRecording() {
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
         const tab = tabs[0];
         if (tab) {
-
             const existingContexts = await chrome.runtime.getContexts({});
             const offscreenDocument = existingContexts.find(
                 (c) => c.contextType === 'OFFSCREEN_DOCUMENT'
