@@ -6,6 +6,7 @@ let userData = [];
 
 chrome.runtime.onMessage.addListener(async (request) => {
     switch (request.message) {
+
         case 'getSummary':
             allUser = getAttendees();
             summary = getSummary();
@@ -14,12 +15,17 @@ chrome.runtime.onMessage.addListener(async (request) => {
                 createTxtFile(allUser, summary);
             }, 2000);
             break;
+
         case 'getUserAudio':
             startUserRecording();
+            chrome.storage.local.set({ userRecording: true });
             break;
+
         case 'stopUserAudio':
             stopUserRecording();
+            chrome.storage.local.set({ userRecording: false });
             break;
+
         default:
             throw new Error('Unrecognized message:', message.type);
     }
@@ -33,13 +39,11 @@ async function startUserRecording() {
     const userMedia = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     userRecorder = new MediaRecorder(userMedia, { mimeType: 'audio/webm' });
-    userRecorder.ondataavailable = (event) => userData.push(event.data);
+    userRecorder.ondataavailable = function (event) {
+        userData.push(event.data);
+        console.log(event.data);
+    }
     userRecorder.onstop = () => {
-        chrome.runtime.sendMessage({
-            type: 'userAudio',
-            target: 'offscreen',
-            data: userData
-        });
         const blob = new Blob(userData, { type: 'video/webm' });
         window.open(URL.createObjectURL(blob), '_blank');
 

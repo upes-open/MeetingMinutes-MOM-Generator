@@ -5,15 +5,19 @@ let userData;
 chrome.runtime.onMessage.addListener(async (message) => {
     if (message.target === 'offscreen') {
         switch (message.type) {
+            
             case 'start-recording':
                 startRecording(message.data);
                 break;
+
             case 'stop-recording':
                 stopRecording();
                 break;
+
             case 'userAudio':
                 userData = message.data;
                 break;
+
             default:
                 throw new Error('Unrecognized message:', message.type);
         }

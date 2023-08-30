@@ -2,33 +2,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let listenBtn = document.querySelector('.listen-btn');
     let downloadBtn = document.querySelector('.download-btn');
+    let userBtn = document.querySelector('.user-btn');
     let recording;
+    let userRecording;
 
     chrome.storage.local.get('recording', (result) => {
         if ('recording' in result) {
             recording = result.recording;
         }
-        
         if (recording) {
             listenBtn.innerText = "Stop Listening";
+            userBtn.removeAttribute('disabled');
         } else {
             listenBtn.innerText = "Start Listening";
+            userBtn.setAttribute('disabled', true);
+        }
+    });
+
+    chrome.storage.local.get('userRecording', (result) => {
+        if ('userRecording' in result) {
+            userRecording = result.userRecording;
+        }
+        else {
+            userRecording = false;
         }
     });
 
     listenBtn.addEventListener('click', function () {
-        if (this.innerText === "Start Listening") {
+        if (!recording) {
             chrome.runtime.sendMessage({
-                message: 'startListening'
+                message: 'startListeningTab'
             });
             this.innerText = "Stop Listening";
             userBtn.removeAttribute('disabled');
+            recording = true;
         } else {
             chrome.runtime.sendMessage({
-                message: 'stopListening'
+                message: 'stopListeningTab'
             });
             this.innerText = "Start Listening";
             userBtn.setAttribute('disabled', true);
+            recording = false;
+        }
+    });
+
+    userBtn.addEventListener('click', function () {
+        if (!userRecording) {
+            chrome.runtime.sendMessage({
+                message: 'startListeningUser'
+            });
+            this.innerText = "Stop Recording User";
+            userRecording = true;
+        }
+        else {
+            chrome.runtime.sendMessage({
+                message: 'stopListeningUser'
+            });
+            this.innerText = "Start Recording User";
+            if (!recording) {
+                userBtn.setAttribute('disabled', true);
+            }
+            userRecording = false;
         }
     });
 

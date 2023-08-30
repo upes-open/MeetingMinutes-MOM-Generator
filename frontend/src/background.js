@@ -6,18 +6,18 @@ chrome.storage.local.get('recording', (result) => {
     else recording = false;
 });
 
-chrome.runtime.onMessage.addListener(
-    function (request) {
-        if (request.message === 'startListening') {
+chrome.runtime.onMessage.addListener(async (request) => {
+    switch (request.message) {
+
+        case 'startListeningTab':
             if (!recording) {
-                sendMessageToContentScript({ message: 'getUserAudio' });
                 startRecording();
             } else {
                 console.log("Recording is already active.");
             }
-        }
+            break;
 
-        if (request.message === 'stopListening') {
+        case 'stopListeningTab':
             if (recording) {
                 sendMessageToContentScript({ message: 'stopUserAudio' });
                 stopRecording();
@@ -25,17 +25,28 @@ chrome.runtime.onMessage.addListener(
             else {
                 console.log("Recording is not active.");
             }
-        }
+            break;
 
-        if (request.message === 'downloadSummary') {
+        case 'startListeningUser':
+            sendMessageToContentScript({ message: 'getUserAudio' });
+            break;
+
+        case 'stopListeningUser':
+            sendMessageToContentScript({ message: 'stopUserAudio' });
+            break;
+
+        case 'downloadSummary':
             sendMessageToContentScript({ message: 'getSummary' });
-        }
+            break;
 
-        if (request.type === 'log') {
+        case 'log':
             console.log(request.message);
-        }
+            break;
+
+        default:
+            throw new Error('Unrecognized message:', message.type);
     }
-);
+});
 
 function sendMessageToContentScript(message, value) {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
