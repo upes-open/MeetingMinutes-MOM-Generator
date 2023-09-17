@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if ('recording' in result) {
             recording = result.recording;
         }
+        else {
+            recording = false;
+        }
         if (recording) {
             listenBtn.innerText = "Stop Listening";
             userBtn.removeAttribute('disabled');
@@ -30,19 +33,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     listenBtn.addEventListener('click', function () {
         if (!recording) {
+            recording = true;
             chrome.runtime.sendMessage({
                 message: 'startListeningTab'
             });
             this.innerText = "Stop Listening";
             userBtn.removeAttribute('disabled');
-            recording = true;
         } else {
+            recording = false;
             chrome.runtime.sendMessage({
                 message: 'stopListeningTab'
             });
             this.innerText = "Start Listening";
             userBtn.setAttribute('disabled', true);
-            recording = false;
         }
     });
 

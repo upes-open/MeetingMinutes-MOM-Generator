@@ -15,20 +15,26 @@
 </head>
 
 <body>
-    <header>
-        <h3 class="alert-heading">MeetingMinutes</h3>
+    <header class="top">
+        <img src="/frontend/assets/logo.png" alt="logo" class="logo">
+        <h3 class="heading">MeetingMinutes</h3>
     </header>
 
-    <hr class="bg-secondary">
+    <hr class="line l1">
 
-    <div class="listen text-center">
-        <button class="btn btn-danger rounded-pill listen-btn">Start Listening</button>
+    <div class="mid">
+        <div class="listen text-center">
+            <button class="btn rounded-pill listen-btn">Start Listening</button>
+        </div>
+        <div class="summary text-center">
+            <button class="btn rounded-pill download-btn">Get Summary</button>
+        </div>
     </div>
-    <div class="user text-center">
-        <button class="btn btn-secondary user-btn" disabled>Start Recording User</button>
-    </div>
-    <div class="download text-center m-2">
-        <button class="btn btn-secondary download-btn">Get Summary</button>
+
+    <div class="bottom">
+        <hr class="line l2">
+        <h3 class="rectime">00:00</h3>
+        <hr class="line l2">
     </div>
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
