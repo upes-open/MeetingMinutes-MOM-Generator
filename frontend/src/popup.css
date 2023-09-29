@@ -160,9 +160,13 @@ body {
 
 .mid {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	padding: 10px 0;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.up {
+	display: flex;
 }
 
 .btn {
