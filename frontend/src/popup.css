@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,50 +86,123 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 body {
-    padding: 1em;
-    line-height: 1em;
-    font-family: 'Roboto', sans-serif;
-    width: 250px;
-    color: white;
-    background-color: #1b1b1b;
+	padding: 1em;
+	line-height: 1em;
+	font-family: 'Roboto', sans-serif;
+	width: 400px;
+	color: #EEE;
+	background-color: #000;
+	stroke-width: 11px;
+	stroke: #EEE;
 }
 
-.alert-heading {
-    text-align: center;
-    font-size: 1.3em;
+.top {
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 
-.listen {
+.logo {
+	width: 60px;
+	height: 55px;
+	max-width: 25%;
+}
+
+.heading {
+	text-align: center;
+	font-size: 1.3em;
+	width: 75%;
+}
+
+.mid {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-.listen-btn {
-    font-size: 0.975em;
-	margin-bottom: 1em;
+.up {
+	display: flex;
+}
+
+.btn {
+	background-color: #b15dd0;
+	color: white;
+}
+
+/* change background of btn that is not disabled */
+
+.btn:hover {
+	color: white;
+}
+
+.btn:hover:not([disabled]) {
+	background-color: #a541c4;
+}
+
+.bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rectime {
+	color: #fb8500;
+}
+
+.line {
+	height: 1px;
+	background-color: white;
+}
+
+.l1 {
+	margin-top: 5px;
+}
+
+.l2 {
+	width: 40%;
 }
